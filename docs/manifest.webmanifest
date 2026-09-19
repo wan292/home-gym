@@ -1,0 +1,25 @@
+{
+  "name": "Sparnod Rotation",
+  "short_name": "Rotation",
+  "description": "Full-body A/B/C rotation for the Sparnod SHG-10000 home gym.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#131619",
+  "theme_color": "#131619",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

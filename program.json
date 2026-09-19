@@ -1,0 +1,414 @@
+{
+  "machine": {
+    "name": "Sparnod SHG-10000",
+    "stack_lb": 138,
+    "plates": 14,
+    "plate_lb": [
+      8,
+      18,
+      28,
+      38,
+      48,
+      58,
+      68,
+      78,
+      88,
+      98,
+      108,
+      118,
+      128,
+      138
+    ],
+    "attachments": [
+      "Lat bar",
+      "Silver bar",
+      "Single strap",
+      "Ankle strap",
+      "Triceps rope"
+    ]
+  },
+  "rotation": [
+    "fb-a",
+    "fb-b",
+    "fb-c"
+  ],
+  "week": [
+    {
+      "day": "Sat",
+      "workout": "fb-a"
+    },
+    {
+      "day": "Sun",
+      "workout": "rest"
+    },
+    {
+      "day": "Mon",
+      "workout": "fb-b"
+    },
+    {
+      "day": "Tue",
+      "workout": "rest"
+    },
+    {
+      "day": "Wed",
+      "workout": "fb-c"
+    },
+    {
+      "day": "Thu",
+      "workout": "rest"
+    },
+    {
+      "day": "Fri",
+      "workout": "rest"
+    }
+  ],
+  "workouts": {
+    "rest": {
+      "name": "Rest",
+      "group": "rest",
+      "focus": "Off. Walk, stretch, sleep.",
+      "rest_s": 0,
+      "items": []
+    },
+    "fb-a": {
+      "name": "Full Body A",
+      "group": "a",
+      "focus": "Chest press · row · quads · hamstrings · triceps",
+      "rest_s": 75,
+      "items": [
+        {
+          "ex": "Machine_Bench_Press",
+          "label": "Chest Press",
+          "station": "Press arm, seated",
+          "sets": 3,
+          "reps": [
+            8,
+            12
+          ],
+          "load": "stack",
+          "cue": "Handles at mid-chest. Press, don't shrug. Two warm-up sets at half weight first."
+        },
+        {
+          "ex": "Seated_Cable_Rows",
+          "label": "Seated Cable Row",
+          "station": "Low pulley · silver bar",
+          "sets": 3,
+          "reps": [
+            8,
+            12
+          ],
+          "load": "stack",
+          "cue": "Sit tall, pull to the navel, squeeze the shoulder blades, slow return."
+        },
+        {
+          "ex": "Leg_Extensions",
+          "label": "Leg Extension",
+          "station": "Leg developer, seated",
+          "sets": 3,
+          "reps": [
+            10,
+            15
+          ],
+          "load": "stack",
+          "cue": "Roller on the shins, kick to full lock, squeeze one second, lower slow."
+        },
+        {
+          "ex": "Seated_Leg_Curl",
+          "label": "Leg Curl",
+          "station": "Leg developer · heels behind the lower roller",
+          "sets": 3,
+          "reps": [
+            10,
+            15
+          ],
+          "load": "stack",
+          "cue": "Pull the heels under the seat, keep the hips down."
+        },
+        {
+          "ex": "Triceps_Pushdown_-_Rope_Attachment",
+          "label": "Rope Pushdown",
+          "station": "High pulley · triceps rope",
+          "sets": 2,
+          "reps": [
+            10,
+            15
+          ],
+          "load": "stack",
+          "small": true,
+          "cue": "Elbows pinned to your sides, split the rope at the bottom."
+        },
+        {
+          "ex": "Cable_Crunch",
+          "label": "Cable Crunch",
+          "station": "High pulley · rope, kneeling",
+          "sets": 2,
+          "reps": [
+            15,
+            15
+          ],
+          "load": "stack",
+          "optional": true,
+          "cue": "Optional. Rope beside the ears, curl the ribs to the hips, hips stay still."
+        }
+      ]
+    },
+    "fb-b": {
+      "name": "Full Body B",
+      "group": "b",
+      "focus": "Pulldown · pec deck · split squat · hamstrings · biceps",
+      "rest_s": 75,
+      "items": [
+        {
+          "ex": "Wide-Grip_Lat_Pulldown",
+          "label": "Wide-Grip Lat Pulldown",
+          "station": "High pulley · lat bar",
+          "sets": 3,
+          "reps": [
+            8,
+            12
+          ],
+          "load": "stack",
+          "cue": "Chest up, bar to the upper chest, elbows down and back. Two warm-up sets first."
+        },
+        {
+          "ex": "Butterfly",
+          "label": "Pec Deck",
+          "station": "Press arm · fly position",
+          "sets": 3,
+          "reps": [
+            10,
+            15
+          ],
+          "load": "stack",
+          "cue": "Elbows soft, squeeze the pads together, 2-second return."
+        },
+        {
+          "ex": "Split_Squats",
+          "label": "Split Squat",
+          "station": "Floor · hold a weight plate or bodyweight",
+          "sets": 3,
+          "reps": [
+            10,
+            12
+          ],
+          "load": "free",
+          "per_side": true,
+          "cue": "Long stance, back knee to the floor, front heel stays down."
+        },
+        {
+          "ex": "Seated_Leg_Curl",
+          "label": "Leg Curl",
+          "station": "Leg developer · heels behind the lower roller",
+          "sets": 3,
+          "reps": [
+            10,
+            15
+          ],
+          "load": "stack",
+          "cue": "Constant tension, no resting at the top."
+        },
+        {
+          "ex": "Cable_Preacher_Curl",
+          "label": "Cable Preacher Curl",
+          "station": "Low pulley · silver bar on the arm-curl pad",
+          "sets": 2,
+          "reps": [
+            10,
+            12
+          ],
+          "load": "stack",
+          "small": true,
+          "cue": "Upper arms glued to the pad. Full stretch at the bottom, no bouncing."
+        },
+        {
+          "ex": "Standing_Cable_Wood_Chop",
+          "label": "Cable Wood Chop",
+          "station": "High pulley · single strap",
+          "sets": 2,
+          "reps": [
+            12,
+            12
+          ],
+          "load": "stack",
+          "per_side": true,
+          "optional": true,
+          "cue": "Optional. Arms straight, rotate from the hips, pivot the back foot."
+        }
+      ]
+    },
+    "fb-c": {
+      "name": "Full Body C",
+      "group": "c",
+      "focus": "Shoulder press · underhand pulldown · quads · squat · rear + side delts",
+      "rest_s": 75,
+      "items": [
+        {
+          "ex": "Cable_Shoulder_Press",
+          "label": "Cable Shoulder Press",
+          "station": "Low pulley · silver bar, standing",
+          "sets": 3,
+          "reps": [
+            8,
+            12
+          ],
+          "load": "stack",
+          "cue": "Bar to collarbone, press overhead, ribs down. Step back one foot from the pulley. Two warm-up sets first."
+        },
+        {
+          "ex": "Underhand_Cable_Pulldowns",
+          "label": "Underhand Pulldown",
+          "station": "High pulley · lat bar, shoulder-width underhand",
+          "sets": 3,
+          "reps": [
+            10,
+            12
+          ],
+          "load": "stack",
+          "cue": "Lean back slightly, drive the elbows into your pockets."
+        },
+        {
+          "ex": "Leg_Extensions",
+          "label": "Leg Extension",
+          "station": "Leg developer, seated",
+          "sets": 3,
+          "reps": [
+            12,
+            15
+          ],
+          "load": "stack",
+          "cue": "Lighter than A. Two-second squeeze at the top."
+        },
+        {
+          "ex": "Bodyweight_Squat",
+          "label": "Squat",
+          "station": "Floor · bodyweight or hold a plate at the chest",
+          "sets": 3,
+          "reps": [
+            15,
+            20
+          ],
+          "load": "free",
+          "cue": "Feet shoulder width, sit between the heels, chest tall."
+        },
+        {
+          "ex": "Face_Pull",
+          "label": "Face Pull",
+          "station": "High pulley · triceps rope",
+          "sets": 2,
+          "reps": [
+            12,
+            15
+          ],
+          "load": "stack",
+          "small": true,
+          "cue": "Pull to the forehead, elbows high, finish with a double-biceps pose."
+        },
+        {
+          "ex": "Cable_Seated_Lateral_Raise",
+          "label": "Cable Lateral Raise",
+          "station": "Low pulley · single strap, one arm",
+          "sets": 2,
+          "reps": [
+            12,
+            15
+          ],
+          "load": "stack",
+          "per_side": true,
+          "small": true,
+          "cue": "Cable crosses in front of your body. Lead with the elbow, stop at shoulder height."
+        },
+        {
+          "ex": "Cable_Crunch",
+          "label": "Cable Crunch",
+          "station": "High pulley · rope, kneeling",
+          "sets": 2,
+          "reps": [
+            15,
+            15
+          ],
+          "load": "stack",
+          "optional": true,
+          "cue": "Optional finisher."
+        }
+      ]
+    }
+  },
+  "warmup": [
+    {
+      "ex": "Arm_Circles",
+      "label": "Arm Circles",
+      "secs": 45,
+      "cue": "Big slow circles, forward then backward. Loosen the shoulders."
+    },
+    {
+      "ex": "Dynamic_Chest_Stretch",
+      "label": "Dynamic Chest Stretch",
+      "secs": 30,
+      "cue": "Swing the arms open and closed across the chest, a little further each time."
+    },
+    {
+      "ex": "Bodyweight_Squat",
+      "label": "Bodyweight Squats",
+      "secs": 45,
+      "cue": "Fifteen easy squats. Warm the knees and hips, sit deep."
+    },
+    {
+      "ex": "Inchworm",
+      "label": "Inchworms",
+      "secs": 45,
+      "cue": "Walk the hands out to a plank, walk the feet in. Five reps."
+    }
+  ],
+  "warmup_sets": [
+    {
+      "pct": 0.5,
+      "reps": 10
+    },
+    {
+      "pct": 0.75,
+      "reps": 6
+    }
+  ],
+  "cooldown": [
+    {
+      "ex": "Chest_And_Front_Of_Shoulder_Stretch",
+      "label": "Chest Stretch",
+      "secs": 30,
+      "cue": "Hands on the frame behind you, lean forward until the chest opens."
+    },
+    {
+      "ex": "One_Arm_Against_Wall",
+      "label": "Lat Stretch",
+      "secs": 30,
+      "per_side": true,
+      "cue": "Hold the frame overhead, sit the hips back and away from the hand."
+    },
+    {
+      "ex": "Quad_Stretch",
+      "label": "Quad Stretch",
+      "secs": 30,
+      "per_side": true,
+      "cue": "Heel to glute, knees together, hips forward."
+    },
+    {
+      "ex": "Hamstring_Stretch",
+      "label": "Hamstring Stretch",
+      "secs": 30,
+      "per_side": true,
+      "cue": "Heel on the seat, leg straight, hinge from the hips."
+    },
+    {
+      "ex": "Kneeling_Hip_Flexor",
+      "label": "Hip Flexor Stretch",
+      "secs": 30,
+      "per_side": true,
+      "cue": "Back knee down, tuck the pelvis, push the hips forward."
+    },
+    {
+      "ex": "Childs_Pose",
+      "label": "Child's Pose",
+      "secs": 45,
+      "cue": "Sit back on the heels, arms long, breathe slow. Done."
+    }
+  ]
+}
