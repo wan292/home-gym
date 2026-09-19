@@ -113,16 +113,17 @@
           "cue": "Roller on the shins, kick to full lock, squeeze one second, lower slow."
         },
         {
-          "ex": "Seated_Leg_Curl",
-          "label": "Leg Curl",
-          "station": "Leg developer · heels behind the lower roller",
+          "ex": "Standing_Leg_Curl",
+          "label": "Standing Leg Curl",
+          "station": "Leg developer, standing, one leg",
           "sets": 3,
           "reps": [
             10,
             15
           ],
           "load": "stack",
-          "cue": "Pull the heels under the seat, keep the hips down."
+          "cue": "Face the seat, hands on the backrest. Hook one heel behind the lower roller, curl it to your glute, knee pointing down, lower slow. Two plates lighter than extensions. Awkward? Ankle strap on the low pulley, cable behind you, same move.",
+          "per_side": true
         },
         {
           "ex": "Triceps_Pushdown_-_Rope_Attachment",
@@ -196,16 +197,17 @@
           "cue": "Long stance, back knee to the floor, front heel stays down."
         },
         {
-          "ex": "Seated_Leg_Curl",
-          "label": "Leg Curl",
-          "station": "Leg developer · heels behind the lower roller",
+          "ex": "Standing_Leg_Curl",
+          "label": "Standing Leg Curl",
+          "station": "Leg developer, standing, one leg",
           "sets": 3,
           "reps": [
             10,
             15
           ],
           "load": "stack",
-          "cue": "Constant tension, no resting at the top."
+          "cue": "Face the seat, hands on the backrest. Hook one heel behind the lower roller, curl it to your glute, knee pointing down, lower slow. Two plates lighter than extensions. Awkward? Ankle strap on the low pulley, cable behind you, same move.",
+          "per_side": true
         },
         {
           "ex": "Cable_Preacher_Curl",
@@ -410,5 +412,10 @@
       "secs": 45,
       "cue": "Sit back on the heels, arms long, breathe slow. Done."
     }
-  ]
+  ],
+  "aliases": {
+    "Standing_Leg_Curl": [
+      "Seated_Leg_Curl"
+    ]
+  }
 }

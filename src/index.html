@@ -335,10 +335,13 @@
   const hasDone = (doc) => !!(doc && doc.sets && Object.values(doc.sets).some((arr) => arr.some((x) => x.done)));
 
   function lastPerf(ex, exclude) {
+    const ids = [ex].concat((P.aliases && P.aliases[ex]) || []);   // renamed exercises keep their history
     const dates = Object.keys(logs).filter((d) => d !== exclude).sort().reverse();
     for (const d of dates) {
-      const s = logs[d] && logs[d].sets && logs[d].sets[ex];
-      if (s && s.some((x) => x.done)) return { date: d, sets: s.filter((x) => x.done) };
+      for (const id of ids) {
+        const s = logs[d] && logs[d].sets && logs[d].sets[id];
+        if (s && s.some((x) => x.done)) return { date: d, sets: s.filter((x) => x.done) };
+      }
     }
     return null;
   }
