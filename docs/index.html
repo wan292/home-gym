@@ -127,8 +127,10 @@
   .cards { display: grid; gap: 14px; }
   .ex { background: var(--surface); border-radius: 14px; box-shadow: var(--shadow); padding: 14px 14px 12px; display: grid; gap: 10px; }
   .ex-head { display: grid; grid-template-columns: 118px 1fr; gap: 12px; align-items: start; }
-  .anim { display: block; width: 118px; aspect-ratio: 3 / 2; max-width: 100%; border-radius: 8px; overflow: hidden; background: #FFFFFF; border: 1px solid var(--line); }
-  .anim img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .anim { display: block; position: relative; width: 118px; aspect-ratio: 3 / 2; max-width: 100%; border-radius: 8px; overflow: hidden; background: #FFFFFF; border: 1px solid var(--line); }
+  .anim img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; transition: opacity .55s ease-in-out; }
+  .anim img.f1 { opacity: 0; }
+  .anim.b img.f1 { opacity: 1; }
   .ex-meta { display: grid; gap: 3px; min-width: 0; }
   .ex-meta h3 { font-size: 22px; font-weight: 600; line-height: 1.05; }
   .ex-meta h3 .opt, .go h3 .opt { font-family: var(--body); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-left: 6px; vertical-align: middle; }
@@ -246,7 +248,7 @@
     .hero h2 { font-size: 40px; }
     .go .clock { font-size: 72px; }
   }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } .anim img { transition: none; } }
 </style>
 
 <header class="top">
@@ -462,7 +464,7 @@
           : `<span class="first">First time \u2014 start at ${esc(wLong(it, sg.w))} and find the weight that makes ${it.reps[1]} reps hard.</span>`;
         return `<article class="ex${complete ? " complete" : ""}" data-ex="${esc(it.ex)}">
           <div class="ex-head">
-            <button type="button" class="anim" id="anim-${esc(it.ex)}" data-ex="${esc(it.ex)}" data-frame="0" aria-label="Flip the animation frame"><img src="${F[it.ex][0]}" alt="${esc(it.label)} \u2014 start and end position" width="320" height="213"></button>
+            ${anim(it.ex, `${esc(it.label)} \u2014 start and end position`, `id="anim-${esc(it.ex)}"`)}
             <div class="ex-meta">
               <h3>${esc(it.label)}${it.optional ? `<span class="opt">optional</span>` : ""}</h3>
               <p class="station">${esc(it.station)}</p>
@@ -587,12 +589,10 @@
   });
 
   // ---------- two-frame animation ----------
-  function flip(btn) {
-    const f = btn.dataset.frame === "0" ? 1 : 0;
-    btn.dataset.frame = String(f);
-    btn.querySelector("img").src = F[btn.dataset.ex][f];
-  }
-  if (!reduced) setInterval(() => { document.querySelectorAll(".anim").forEach(flip); }, 900);
+  // both frames are in the box; toggling .b cross-fades to the end position and back
+  const anim = (ex, alt, extra = "") => `<button type="button" class="anim" ${extra} data-ex="${esc(ex)}" aria-label="Flip the animation frame"><img class="f0" src="${F[ex][0]}" alt="${alt}" width="320" height="213"><img class="f1" src="${F[ex][1]}" alt="" width="320" height="213"></button>`;
+  function flip(btn) { btn.classList.toggle("b"); }
+  if (!reduced) setInterval(() => { document.querySelectorAll(".anim").forEach(flip); }, 1100);
 
   // ---------- rest timer (manual mode) ----------
   let restEnd = 0, restTotal = 0, restTick = null;
@@ -675,14 +675,14 @@
     } else if (s.type === "timed") {
       const total = s.secs * (s.per_side ? 2 : 1);
       const left = Math.max(0, total - Math.floor((Date.now() - go.stepStart) / 1000));
-      body = `<button type="button" class="anim" data-ex="${esc(s.ex)}" data-frame="0" aria-label="Flip the animation frame"><img src="${F[s.ex][0]}" alt="${esc(s.label)}" width="320" height="213"></button>
+      body = `${anim(s.ex, `${esc(s.label)}`)}
         <h3>${esc(s.label)}</h3>
         <p class="target"><b>${s.secs}s</b>${s.per_side ? `<span>each side</span>` : ""}</p>
         <p class="cue">${esc(s.cue)}</p>
         <div class="clock" id="goClock">${mmss(left)}<small id="goSub">${s.per_side ? "first side" : s.phase.toLowerCase()}</small></div>`;
       foot = `<button type="button" class="btn primary big" data-go="next">Next</button>`;
     } else if (s.type === "wset") {
-      body = `<button type="button" class="anim" data-ex="${esc(s.it.ex)}" data-frame="0" aria-label="Flip the animation frame"><img src="${F[s.it.ex][0]}" alt="${esc(s.it.label)}" width="320" height="213"></button>
+      body = `${anim(s.it.ex, `${esc(s.it.label)}`)}
         <h3>${esc(s.it.label)}</h3>
         <p class="station">${esc(s.it.station)}</p>
         <p class="target"><b>Warm-up set ${s.k + 1} \u00b7 ${esc(wLong(s.it, s.w))} \u00d7 ${s.r}</b></p>
@@ -693,7 +693,7 @@
       const d = draft[s.it.ex][s.n];
       const last = lastPerf(s.it.ex, dateKey());
       const range = s.it.reps[0] === s.it.reps[1] ? `${s.it.reps[0]}` : `${s.it.reps[0]}\u2013${s.it.reps[1]}`;
-      body = `<button type="button" class="anim" data-ex="${esc(s.it.ex)}" data-frame="0" aria-label="Flip the animation frame"><img src="${F[s.it.ex][0]}" alt="${esc(s.it.label)}" width="320" height="213"></button>
+      body = `${anim(s.it.ex, `${esc(s.it.label)}`)}
         <h3>${esc(s.it.label)}${s.it.optional ? `<span class="opt">optional</span>` : ""}</h3>
         <p class="station">${esc(s.it.station)}</p>
         <p class="target"><b>Set ${s.n + 1} of ${s.it.sets} \u00b7 ${range} reps</b>${s.it.per_side ? `<span>each side</span>` : ""}</p>
