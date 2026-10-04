@@ -181,6 +181,7 @@
 
   .rules { display: grid; gap: 10px; font-size: 14px; }
   .rules p b { font-weight: 600; }
+  .rules .kit { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 3px; color: var(--muted); font-size: 13.5px; }
   .rules .stack { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 4px; }
   .rules .stack span { background: var(--surface); border-radius: 6px; padding: 5px 0; text-align: center; font-size: 11.5px; line-height: 1.2; color: var(--muted); }
   .rules .stack span b { display: block; font-family: var(--display); font-size: 14px; color: var(--ink); }
@@ -227,6 +228,8 @@
   .go .summary p { color: var(--muted); }
 
   @media (max-width: 380px) {
+    .brand { flex-wrap: wrap; }
+    .brand h1 { font-size: 21px; }
     .ex-head { grid-template-columns: 96px 1fr; }
     .anim { width: 96px; }
     .hero h2 { font-size: 40px; }
@@ -278,9 +281,12 @@
       <p><b>Start session</b> walks you through it: a four-minute warm-up, two light sets on the first exercise, every working set with a rest countdown, then a five-minute cool-down. Or log sets by hand on the cards.</p>
       <p><b>Progression.</b> When every set reaches the top of its rep range, add one plate next time. The page tells you. Small-muscle moves (raises, curls, pushdowns) must go three reps past the top first &mdash; a plate is a big jump on a lateral raise.</p>
       <p><b>Short on time?</b> Skip the optional exercise, then the cool-down. Never the first two exercises.</p>
-      <p><b>The stack.</b> Pin positions on this machine, in pounds:</p>
+      <p><b>After a break.</b> Take about 10% off your last weights for the first session back, then carry on as normal. Two weeks off costs you almost nothing; restarting too heavy costs you a week of soreness.</p>
+      <p><b>Your kit.</b> What the program is written around:</p>
+      <ul class="kit" id="kit"></ul>
+      <p><b>The stack.</b> Pin positions on the machine, in pounds:</p>
       <div class="stack" id="stack"></div>
-      <p><b>Later, if you want them:</b> a fourth day once three feels easy (this becomes upper / lower), or a pair of adjustable dumbbells, which would turn the leg work from decent into good.</p>
+      <p><b>Later, if you want it:</b> a fourth day once three feels easy — that is the point to split this into upper / lower.</p>
     </div>
   </section>
 
@@ -346,7 +352,7 @@
     return null;
   }
   function suggest(it, last) {
-    if (!last) return { w: it.load === "free" ? 0 : (it.small ? 2 : 4), up: false, reps: it.reps[0] };
+    if (!last) return { w: it.load === "free" ? (it.start_kg || 0) : (it.small ? 2 : 4), up: false, reps: it.reps[0] };
     const top = it.reps[1] + (it.small ? 3 : 0);
     const full = last.sets.length >= it.sets && last.sets.every((s) => s.r >= top);
     const w = last.sets[0].w;
@@ -611,7 +617,14 @@
     if (!anyDone) P.warmup.forEach((w) => steps.push({ type: "timed", phase: "Warm-up", ...w }));
     wk.items.forEach((it, ei) => {
       const sets = initDraft(it, today);
-      if (ei === 0 && it.load === "stack" && !sets.some((s) => s.done)) P.warmup_sets.forEach((ws, k) => steps.push({ type: "wset", it, k, w: Math.max(1, Math.round(sets[0].w * ws.pct)), r: ws.reps }));
+      if (ei === 0 && sets[0].w && !sets.some((s) => s.done)) {
+        // light sets below the working weight, dropping any that collide once rounded
+        const seen = [];
+        P.warmup_sets.forEach((ws) => {
+          const light = it.load === "free" ? Math.max(2.5, Math.round(sets[0].w * ws.pct / 2.5) * 2.5) : Math.max(1, Math.round(sets[0].w * ws.pct));
+          if (light < sets[0].w && !seen.includes(light)) { seen.push(light); steps.push({ type: "wset", it, k: seen.length - 1, w: light, r: ws.reps }); }
+        });
+      }
       sets.forEach((s, n) => { if (!s.done) steps.push({ type: "set", it, n }); });
     });
     const setCount = steps.filter((s) => s.type === "set").length;
@@ -755,6 +768,7 @@
 
   // ---------- stack table ----------
   $("#stack").innerHTML = PLATES.map((lb, i) => `<span><b>P${i + 1}</b>${lb} lb</span>`).join("");
+  $("#kit").innerHTML = (P.equipment || []).map((e) => `<li>${esc(e)}</li>`).join("");
 
   // ---------- boot + cloud sync ----------
   sel = nextKey();

@@ -73,7 +73,7 @@
     "fb-a": {
       "name": "Full Body A",
       "group": "a",
-      "focus": "Chest press · row · quads · hamstrings · triceps",
+      "focus": "Chest · back · quads · hamstrings · triceps",
       "rest_s": 75,
       "items": [
         {
@@ -86,19 +86,19 @@
             12
           ],
           "load": "stack",
-          "cue": "Handles at mid-chest. Press, don't shrug. Two warm-up sets at half weight first."
+          "cue": "Handles at mid-chest. Press, don't shrug."
         },
         {
           "ex": "Seated_Cable_Rows",
-          "label": "Seated Cable Row",
-          "station": "Low pulley · silver bar",
+          "label": "Seated Row",
+          "station": "Low pulley · triangle grip",
           "sets": 3,
           "reps": [
             8,
             12
           ],
           "load": "stack",
-          "cue": "Sit tall, pull to the navel, squeeze the shoulder blades, slow return."
+          "cue": "The new triangle grip goes here. Sit tall, pull to the navel, squeeze the shoulder blades, slow return."
         },
         {
           "ex": "Leg_Extensions",
@@ -113,17 +113,17 @@
           "cue": "Roller on the shins, kick to full lock, squeeze one second, lower slow."
         },
         {
-          "ex": "Standing_Leg_Curl",
-          "label": "Standing Leg Curl",
-          "station": "Leg developer, standing, one leg",
+          "ex": "Stiff-Legged_Dumbbell_Deadlift",
+          "label": "Dumbbell Romanian Deadlift",
+          "station": "Floor · dumbbells, or the 20 kg kettlebell in both hands",
           "sets": 3,
           "reps": [
             10,
-            15
+            12
           ],
-          "load": "stack",
-          "cue": "Face the seat, hands on the backrest. Hook one heel behind the lower roller, curl it to your glute, knee pointing down, lower slow. Two plates lighter than extensions. Awkward? Ankle strap on the low pulley, cable behind you, same move.",
-          "per_side": true
+          "load": "free",
+          "start_kg": 10,
+          "cue": "This replaces the leg curl. Soft knees, push the hips back, weights slide down the thighs until you feel the hamstrings stretch, then stand tall. Back stays flat — the knees barely move."
         },
         {
           "ex": "Triceps_Pushdown_-_Rope_Attachment",
@@ -156,7 +156,7 @@
     "fb-b": {
       "name": "Full Body B",
       "group": "b",
-      "focus": "Pulldown · pec deck · split squat · hamstrings · biceps",
+      "focus": "Back · chest · legs · glutes · biceps",
       "rest_s": 75,
       "items": [
         {
@@ -169,45 +169,46 @@
             12
           ],
           "load": "stack",
-          "cue": "Chest up, bar to the upper chest, elbows down and back. Two warm-up sets first."
+          "cue": "Chest up, bar to the upper chest, elbows down and back."
         },
         {
-          "ex": "Butterfly",
-          "label": "Pec Deck",
-          "station": "Press arm · fly position",
+          "ex": "Dumbbell_Bench_Press",
+          "label": "Dumbbell Bench Press",
+          "station": "Flat bench · dumbbells",
           "sets": 3,
           "reps": [
-            10,
-            15
-          ],
-          "load": "stack",
-          "cue": "Elbows soft, squeeze the pads together, 2-second return."
-        },
-        {
-          "ex": "Split_Squats",
-          "label": "Split Squat",
-          "station": "Floor · hold a weight plate or bodyweight",
-          "sets": 3,
-          "reps": [
-            10,
+            8,
             12
           ],
           "load": "free",
-          "per_side": true,
-          "cue": "Long stance, back knee to the floor, front heel stays down."
+          "start_kg": 10,
+          "cue": "Lie back, dumbbells at chest level, press up and slightly together. Lower until the elbows are level with the bench."
         },
         {
-          "ex": "Standing_Leg_Curl",
-          "label": "Standing Leg Curl",
-          "station": "Leg developer, standing, one leg",
+          "ex": "Goblet_Squat",
+          "label": "Goblet Squat",
+          "station": "Floor · kettlebell at the chest",
           "sets": 3,
           "reps": [
             10,
             15
           ],
-          "load": "stack",
-          "cue": "Face the seat, hands on the backrest. Hook one heel behind the lower roller, curl it to your glute, knee pointing down, lower slow. Two plates lighter than extensions. Awkward? Ankle strap on the low pulley, cable behind you, same move.",
-          "per_side": true
+          "load": "free",
+          "start_kg": 12,
+          "cue": "Hold the kettlebell by the horns at your chest. Sit straight down between the heels, elbows inside the knees, chest tall."
+        },
+        {
+          "ex": "One-Arm_Kettlebell_Swings",
+          "label": "Kettlebell Swing",
+          "station": "Floor · the 20 kg kettlebell, both hands",
+          "sets": 3,
+          "reps": [
+            15,
+            20
+          ],
+          "load": "free",
+          "start_kg": 16,
+          "cue": "Both hands on the handle (the photo shows one arm — use two). Hinge at the hips, snap them forward, let the bell float to chest height. It's a hip snap, not a lift with the arms."
         },
         {
           "ex": "Cable_Preacher_Curl",
@@ -241,56 +242,63 @@
     "fb-c": {
       "name": "Full Body C",
       "group": "c",
-      "focus": "Shoulder press · underhand pulldown · quads · squat · rear + side delts",
+      "focus": "Shoulders · back · single leg · side delts",
       "rest_s": 75,
       "items": [
         {
-          "ex": "Cable_Shoulder_Press",
-          "label": "Cable Shoulder Press",
-          "station": "Low pulley · silver bar, standing",
+          "ex": "Dumbbell_Shoulder_Press",
+          "label": "Seated Shoulder Press",
+          "station": "Bench upright · dumbbells",
           "sets": 3,
           "reps": [
             8,
             12
           ],
-          "load": "stack",
-          "cue": "Bar to collarbone, press overhead, ribs down. Step back one foot from the pulley. Two warm-up sets first."
+          "load": "free",
+          "start_kg": 8,
+          "cue": "Sit on the bench, back straight, dumbbells at ear height. Press overhead without arching the lower back."
         },
         {
-          "ex": "Underhand_Cable_Pulldowns",
-          "label": "Underhand Pulldown",
-          "station": "High pulley · lat bar, shoulder-width underhand",
+          "ex": "One-Arm_Dumbbell_Row",
+          "label": "One-Arm Dumbbell Row",
+          "station": "Bench · one hand and knee on it",
           "sets": 3,
           "reps": [
             10,
             12
           ],
-          "load": "stack",
-          "cue": "Lean back slightly, drive the elbows into your pockets."
+          "load": "free",
+          "per_side": true,
+          "start_kg": 12,
+          "cue": "Flat back, pull the dumbbell to your hip, elbow past your ribs. Don't twist — the shoulders stay level."
         },
         {
-          "ex": "Leg_Extensions",
-          "label": "Leg Extension",
-          "station": "Leg developer, seated",
+          "ex": "Split_Squat_with_Dumbbells",
+          "label": "Bulgarian Split Squat",
+          "station": "Bench · back foot on it, dumbbells at your sides",
           "sets": 3,
+          "reps": [
+            10,
+            12
+          ],
+          "load": "free",
+          "per_side": true,
+          "start_kg": 6,
+          "cue": "Back foot on the bench, front foot a long step out. Drop straight down, front heel stays flat. Start light — balance is the hard part."
+        },
+        {
+          "ex": "Side_Lateral_Raise",
+          "label": "Dumbbell Lateral Raise",
+          "station": "Standing · light dumbbells",
+          "sets": 2,
           "reps": [
             12,
             15
           ],
-          "load": "stack",
-          "cue": "Lighter than A. Two-second squeeze at the top."
-        },
-        {
-          "ex": "Bodyweight_Squat",
-          "label": "Squat",
-          "station": "Floor · bodyweight or hold a plate at the chest",
-          "sets": 3,
-          "reps": [
-            15,
-            20
-          ],
           "load": "free",
-          "cue": "Feet shoulder width, sit between the heels, chest tall."
+          "small": true,
+          "start_kg": 4,
+          "cue": "Lighter than you think. Lead with the elbows, stop at shoulder height, lower slow."
         },
         {
           "ex": "Face_Pull",
@@ -304,20 +312,6 @@
           "load": "stack",
           "small": true,
           "cue": "Pull to the forehead, elbows high, finish with a double-biceps pose."
-        },
-        {
-          "ex": "Cable_Seated_Lateral_Raise",
-          "label": "Cable Lateral Raise",
-          "station": "Low pulley · single strap, one arm",
-          "sets": 2,
-          "reps": [
-            12,
-            15
-          ],
-          "load": "stack",
-          "per_side": true,
-          "small": true,
-          "cue": "Cable crosses in front of your body. Lead with the elbow, stop at shoulder height."
         },
         {
           "ex": "Cable_Crunch",
@@ -343,10 +337,10 @@
       "cue": "Big slow circles, forward then backward. Loosen the shoulders."
     },
     {
-      "ex": "Dynamic_Chest_Stretch",
-      "label": "Dynamic Chest Stretch",
-      "secs": 30,
-      "cue": "Swing the arms open and closed across the chest, a little further each time."
+      "ex": "Band_Pull_Apart",
+      "label": "Band Pull-Apart",
+      "secs": 45,
+      "cue": "Band at chest height, arms straight. Pull it apart until it touches your chest, squeeze the shoulder blades, slow return."
     },
     {
       "ex": "Bodyweight_Squat",
@@ -413,9 +407,13 @@
       "cue": "Sit back on the heels, arms long, breathe slow. Done."
     }
   ],
-  "aliases": {
-    "Standing_Leg_Curl": [
-      "Seated_Leg_Curl"
-    ]
-  }
+  "aliases": {},
+  "equipment": [
+    "Sparnod SHG-10000 — 138 lb stack, press arm, high + low pulley, arm-curl pad, leg developer",
+    "Adjustable dumbbells",
+    "Flat bench",
+    "Kettlebells — roughly 8, 16 and 20 kg",
+    "Pulley grips — triceps rope and triangle (close-grip) handle",
+    "Resistance band"
+  ]
 }
